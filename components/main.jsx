@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import DefaultTimeSeries from './DefaultTimeSeries.jsx'
 import DefaultSparkline from './DefaultSparkline.jsx'
-import {timeSeriesData, sparklineBinaryData} from '../data'
+import CustomVisual from './CustomVisual.jsx'
+import {timeSeriesData, sparklineBinaryData, adverseEventData} from '../data'
+
 
 export default class Main extends Component {
     constructor(){
@@ -10,13 +12,13 @@ export default class Main extends Component {
     render(){
         return (
             <div>
-                <h1>Tufte-js</h1>
+                <h1>Tufte-JS*</h1>
                 <h4>React components that implement Prof. Edward Tufte's principles
                      for data visualization</h4>
                 <h2>Time Series - Default Behavior</h2>
                 <DefaultTimeSeries 
                     id="defaultTimeSeries"
-                    width={500}
+                    width={600}
                     height={100}
                     data={timeSeriesData}
                 />
@@ -25,22 +27,23 @@ export default class Main extends Component {
                 <h2>Modifying Layering and Tooltip Behaviors</h2>
                 <h2>Sparklines - Default Behavior</h2>
                 <DefaultSparkline
-                id="defaultSparkline"
-                width={300}
-                height={50}
-                data={sparklineBinaryData}
+                    id="defaultSparkline"
+                    width={300}
+                    height={50}
+                    data={sparklineBinaryData}
                 />
                 <h2>Modifying Drawing Behavior</h2>
                 <h2>Embedding Sparklines Inline</h2>
                 <h2>Custom Visualizations</h2>
+                <CustomVisual 
+                    id="customVisual"
+                    width={400}
+                    height={150}
+                    data={adverseEventData}
+                />
                 <h2>Using Visualizations as Building Blocks</h2>
             </div>
         )
     }
     
 }
-
-// const canvas = document.querySelector('#visualizer')
-// canvas.setAttribute('width', document.querySelector('#wrapper').clientWidth)
-// canvas.setAttribute('height', document.querySelector('#wrapper').clientHeight)
-// const canvasContext = canvas.getContext('2d')

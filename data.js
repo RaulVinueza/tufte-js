@@ -32,11 +32,11 @@ export const adverseEventData = [
     null,
     null,
     null,
-    {classification: 'headache', severity: 1},
-    {classification: 'fatigue', severity: 2},
+    {classification: 'Headache', severity: 1},
+    {classification: 'Fatigue', severity: 2},
     null,
     null,
-    {classification: 'cough', severity: 3},
+    {classification: 'Cough', severity: 3},
     null
 ]
 
