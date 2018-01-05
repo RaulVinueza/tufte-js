@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import DefaultTimeSeries from './DefaultTimeSeries.jsx'
 import DefaultSparkline from './DefaultSparkline.jsx'
 import CustomVisual from './CustomVisual.jsx'
-import {timeSeriesData, sparklineBinaryData, adverseEventData} from '../data'
+import BloodPressure from './BloodPressure.jsx'
+import {timeSeriesData, sparklineBinaryData, adverseEventData, systolicData, diastolicData} from '../data'
 
 
 export default class Main extends Component {
@@ -23,8 +24,15 @@ export default class Main extends Component {
                     data={timeSeriesData}
                 />
                 <h2>Modifying Scaling Behavior</h2>
+                <h2>Modifying Line Drawing Behavior</h2>
                 <h2>Modifying Mouseover and Background Behaviors</h2>
-                <h2>Modifying Layering and Tooltip Behaviors</h2>
+                <BloodPressure
+                id="bloodPressure"
+                width={600}
+                height={100}
+                systolicData={systolicData}
+                diastolicData={diastolicData}
+                />
                 <h2>Sparklines - Default Behavior</h2>
                 <DefaultSparkline
                     id="defaultSparkline"
