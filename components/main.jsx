@@ -3,8 +3,8 @@ import DefaultTimeSeries from './DefaultTimeSeries.jsx'
 import DefaultSparkline from './DefaultSparkline.jsx'
 import CustomVisual from './CustomVisual.jsx'
 import BloodPressure from './BloodPressure.jsx'
-import {timeSeriesData, sparklineBinaryData, adverseEventData, systolicData, diastolicData} from '../data'
-
+import TreatmentComparison from './TreatmentComparison.jsx'
+import {timeSeriesData, sparklineBinaryData, adverseEventData, systolicData, diastolicData, treatmentA, treatmentB, adverseEventTableData} from '../data'
 
 export default class Main extends Component {
     constructor(){
@@ -23,8 +23,14 @@ export default class Main extends Component {
                     height={100}
                     data={timeSeriesData}
                 />
-                <h2>Modifying Scaling Behavior</h2>
                 <h2>Modifying Line Drawing Behavior</h2>
+                <TreatmentComparison 
+                    id="treatmentComparison"
+                    width={600}
+                    height={100}
+                    treatmentA={treatmentA}
+                    treatmentB={treatmentB}
+                />
                 <h2>Modifying Mouseover and Background Behaviors</h2>
                 <BloodPressure
                 id="bloodPressure"
@@ -40,8 +46,6 @@ export default class Main extends Component {
                     height={50}
                     data={sparklineBinaryData}
                 />
-                <h2>Modifying Drawing Behavior</h2>
-                <h2>Embedding Sparklines Inline</h2>
                 <h2>Custom Visualizations</h2>
                 <CustomVisual 
                     id="customVisual"
@@ -49,7 +53,6 @@ export default class Main extends Component {
                     height={150}
                     data={adverseEventData}
                 />
-                <h2>Using Visualizations as Building Blocks</h2>
             </div>
         )
     }
