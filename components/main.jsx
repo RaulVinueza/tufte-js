@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import DefaultTimeSeries from './DefaultTimeSeries.jsx'
+import behaviors from '../behaviors'
+import {timeSeriesData} from '../data'
 
 export default class Main extends Component {
     constructor(){
@@ -11,6 +14,12 @@ export default class Main extends Component {
                 <h4>React components that implement Prof. Edward Tufte's principles
                      for data visualization</h4>
                 <h2>Time Series - Default Behavior</h2>
+                <DefaultTimeSeries 
+                    id="defaultTimeSeries"
+                    width={500}
+                    height={100}
+                    data={timeSeriesData}
+                />
                 <h2>Modifying Scaling Behavior</h2>
                 <h2>Modifying Mouseover and Background Behaviors</h2>
                 <h2>Modifying Layering and Tooltip Behaviors</h2>
