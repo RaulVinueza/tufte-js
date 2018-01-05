@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import DefaultTimeSeries from './DefaultTimeSeries.jsx'
-import behaviors from '../behaviors'
-import {timeSeriesData} from '../data'
+import DefaultSparkline from './DefaultSparkline.jsx'
+import {timeSeriesData, sparklineBinaryData} from '../data'
 
 export default class Main extends Component {
     constructor(){
@@ -24,6 +24,12 @@ export default class Main extends Component {
                 <h2>Modifying Mouseover and Background Behaviors</h2>
                 <h2>Modifying Layering and Tooltip Behaviors</h2>
                 <h2>Sparklines - Default Behavior</h2>
+                <DefaultSparkline
+                id="defaultSparkline"
+                width={300}
+                height={50}
+                data={sparklineBinaryData}
+                />
                 <h2>Modifying Drawing Behavior</h2>
                 <h2>Embedding Sparklines Inline</h2>
                 <h2>Custom Visualizations</h2>

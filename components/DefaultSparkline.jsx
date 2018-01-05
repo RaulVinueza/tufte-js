@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import throttle from 'lodash.throttle'
 
-export default class DefaultTimeSeries extends Component {
+export default class DefaultSparkline  extends Component {
     constructor(){
         super()
     }
@@ -17,15 +17,19 @@ export default class DefaultTimeSeries extends Component {
         const min = Math.min(...data)
         const max = Math.max(...data)
         const range = max - min
-        const widthStep = width / (data.length - 1)
-        const bitmapCoords = data.map(val => {
-            if (val === null) return null
-            return height - (((val - min) / range) * height)
-        })
+        const middleHeight = height / 2
+        const whiskerLength = 10
+        const widthStep = width / (data.length + 2)
         ctx.fillStyle = 'rgb(0, 0, 0)'
-        bitmapCoords.forEach((val, idx) => {
-            if(idx === 0) ctx.moveTo(0, val)
-            else ctx.lineTo(idx * widthStep, val)
+        function whiskerYValue(val){
+            if(val === 1) return middleHeight - whiskerLength
+            else return middleHeight + whiskerLength
+        }
+        ctx.beginPath()
+        data.forEach((val, idx) => {
+                const xVal = widthStep * (idx + 1)
+                ctx.moveTo(xVal, middleHeight)
+                ctx.lineTo(xVal, whiskerYValue(val))    
         })
         ctx.stroke()
         const interactionLayer = document.querySelector(`#${this.props.id}-interaction`)
